@@ -70,7 +70,7 @@ function Signup() {
     };
 
     return (
-        <div className='flex justify-center items-center h-screen bg-cover bg-center bg-no-repeat bg-opacity-75' style={{ backgroundImage: "url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+        <div className='flex justify-center items-center h-screen bg-cover bg-center bg-no-repeat bg-opacity-75' style={{ backgroundImage: "url('https://img.freepik.com/free-photo/black-silhouettes-music-concert-poster-concept_1194-617147.jpg?t=st=1723655718~exp=1723659318~hmac=cf7cf94bb77de81ecdf590508b17698d96368ceac017ead2b656afdcf9c5f101&w=1060')" }}>
             {loading && <Loader />}
             <div className='bg-gray-800 px-8 py-8 rounded-xl shadow-2xl bg-opacity-90'>
                 <div className="mb-6">

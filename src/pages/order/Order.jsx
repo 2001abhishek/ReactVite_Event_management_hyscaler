@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
-import Layout from '../../components/layout/Layout'
-import myContext from '../../context/data/myContext'
-import Loader from '../../components/loader/Loader'
-import Footer from '../../components/footer/Footer'
+import React, { useContext } from 'react';
+import Layout from '../../components/layout/Layout';
+import myContext from '../../context/data/myContext';
+import Loader from '../../components/loader/Loader';
+import Footer from '../../components/footer/Footer';
 
 function Order() {
-  const userid = JSON.parse(localStorage.getItem('user')).user.uid
+  const userid = JSON.parse(localStorage.getItem('user')).user.uid;
   const context = useContext(myContext);
   const { mode, loading, order } = context;
 
@@ -20,8 +20,8 @@ function Order() {
   return (
     <Layout>
       {loading && <Loader />}
-      {order.length > 0 ?
-        (<>
+      {order.length > 0 ? (
+        <>
           <div className="h-full pt-10">
             {
               order.filter(obj => obj.userid === userid).map((order) => {
@@ -38,30 +38,29 @@ function Order() {
                                   <h2 className="text-lg font-bold text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.title}</h2>
                                   <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>{truncateDescription(item.description)}</p>
                                   <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}><b>₹ {order.grandTotal}/-</b></p>
-                                  <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}><b>Date: </b>{order.addressInfo.date}</p>
+                                  <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}><b>Booking: </b>{order.addressInfo.date}</p>
+                                  <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}><b>Event Date: </b>{item.eventDate}</p> {/* Added eventDate */}
                                   <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}><b>Quantity: </b>{item.quantity}</p>
-                                  <p className="mt-1 text-xs text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}><b>Ticket: </b>{order.ticketId}</p>
+                                  <p className="mt-1 text-xl text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}><b>Ticket: </b>{order.ticketId}</p>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        )
+                        );
                       })
                     }
                   </div>
-                )
+                );
               })
             }
           </div>
-        </>)
-        :
-        (
-          <h2 className='text-center text-2xl text-black'>No booking Event Yet</h2>
-        )
-      }
+        </>
+      ) : (
+        <h2 className='text-center text-2xl text-black'>No booking Event Yet</h2>
+      )}
       <Footer />
     </Layout>
-  )
+  );
 }
 
 export default Order;

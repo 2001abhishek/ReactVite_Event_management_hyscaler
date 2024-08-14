@@ -67,7 +67,7 @@ function Allproducts() {
                                                 <div className=" flex justify-center">
                                                     <button type="button"
                                                         onClick={(event) => addCart(event, item)}
-                                                        className="focus:outline-none text-white bg-violet-600 hover:bg-violet-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Add To Cart</button>
+                                                        className="focus:outline-none text-white bg-violet-600 hover:bg-violet-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Book a ticket</button>
 
                                                 </div>
                                             </div>

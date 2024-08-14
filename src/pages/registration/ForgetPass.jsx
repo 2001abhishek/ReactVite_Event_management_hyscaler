@@ -35,7 +35,7 @@ function ForgetPass() {
         }
     }
     return (
-        <div className='flex justify-center items-center h-screen bg-cover bg-center bg-no-repeat bg-opacity-75' style={{ backgroundImage: "url('https://images.unsplash.com/photo-1527690789675-4ea7d8da4fe3?q=80&w=1992&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}>
+        <div className='flex justify-center items-center h-screen bg-cover bg-center bg-no-repeat bg-opacity-75' style={{ backgroundImage: "url('https://img.freepik.com/premium-photo/security-reset-password-login-online-concept-hands-typing-entering-username-password-social-media-log-with-smartphone-online-bank-account-data-protection-from-hacker_162459-4210.jpg?w=1060')" }}>
             {loading && <Loader />}
             <div className=' bg-gray-800 px-10 py-10 rounded-xl shadow-2xl bg-opacity-90 '>
                 <div className="">

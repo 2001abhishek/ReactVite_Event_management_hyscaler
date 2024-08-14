@@ -34,7 +34,7 @@ function Cart() {
 
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
-    toast.warning('Item removed');
+    toast.warning('ticket removed');
   };
 
   useEffect(() => {
