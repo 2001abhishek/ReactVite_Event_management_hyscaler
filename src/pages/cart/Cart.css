@@ -1,0 +1,23 @@
+/* Example CSS */
+.cart-container {
+    padding-bottom: 80px; /* Space for the footer */
+  }
+  
+  .cart-items {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to a new row if necessary */
+    gap: 20px; /* Space between cart items */
+  }
+  
+  .cart-item {
+    /* Your cart item styles */
+    width: calc(33.33% - 20px); /* Adjust the width based on your layout needs */
+    /* Other styles */
+  }
+  
+  /* Media query for smaller screens */
+  @media screen and (max-width: 768px) {
+    .cart-item {
+      width: calc(50% - 20px); /* Adjust for smaller screens */
+    }
+  }
