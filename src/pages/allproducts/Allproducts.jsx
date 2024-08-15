@@ -47,10 +47,7 @@ function Allproducts() {
             <Filter />
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-8 md:py-16 mx-auto">
-                    <div className="lg:w-1/2 w-full mb-6 lg:mb-10">
-                        <h1 Name="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>Our Latest Collection</h1>
-                        <div className="h-1 w-20 bg-violet-600 rounded"></div>
-                    </div>
+                   
 
                     <div className="flex flex-wrap -m-4">
                         {product.filter((obj) => obj.title.toLowerCase().includes(searchkey))
@@ -71,7 +68,7 @@ function Allproducts() {
                                                 <div className=" flex justify-center">
                                                     <button type="button"
                                                         onClick={(event) => addCart(event, item)}
-                                                        className="focus:outline-none text-white bg-violet-600 hover:bg-violet-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Book a ticket</button>
+                                                        className="focus:outline-none text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full  py-2">Book a ticket</button>
 
                                                 </div>
                                             </div>

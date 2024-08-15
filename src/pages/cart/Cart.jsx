@@ -216,7 +216,6 @@ function Cart() {
         </div>
       </div>
       <Footer />
-      {/* <Modal /> */}
     </Layout>
   );
 }

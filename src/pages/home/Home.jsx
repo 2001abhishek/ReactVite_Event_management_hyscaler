@@ -10,7 +10,7 @@ import Footer from '../../components/footer/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, deleteFromCart } from '../../redux/cartSlice'
 import { Link } from 'react-router-dom'
-import ChatBot from '../../components/chatbot/ChatBot'
+import ChatBox from '../../components/chatbot/ChatBox'
 
 function Home() {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function Home() {
     <Herosection/>
     <Filter/>
     <ProductCard/>
-    <div className="flex justify-center -mt-7 mb-4">
+    <div className="flex justify-center -mt-1 mb-4">
         <Link to={'/allproducts'}>
           <button className=' bg-gray-200  hover:scale-110 transition-scale-110 duration-300 ease-in-out px-5 py-2 drop-shadow-2xl rounded-xl'><u>See more</u></button>
         </Link>
@@ -38,8 +38,8 @@ function Home() {
     <Track/>
     <Testimonial/>
     <Footer/>
-    <ChatBot/>
-    </Layout>
+    <ChatBox/>
+        </Layout>
   )
 }
 
