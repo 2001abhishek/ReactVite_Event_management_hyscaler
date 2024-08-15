@@ -146,7 +146,6 @@ function Cart() {
     pay.open();
     console.log(pay);
   };  
-  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -217,7 +216,7 @@ function Cart() {
         </div>
       </div>
       <Footer />
-      <Modal />
+      {/* <Modal /> */}
     </Layout>
   );
 }

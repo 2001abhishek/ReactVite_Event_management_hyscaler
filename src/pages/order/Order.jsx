@@ -56,7 +56,8 @@ function Order() {
           </div>
         </>
       ) : (
-        <h2 className='text-center text-2xl text-black'>No booking Event Yet</h2>
+        <h2 style={{ color: mode === 'dark' ? 'white' : '' }}
+         className='text-center text-2xl text-black'>No booking Event Yet</h2>
       )}
       <Footer />
     </Layout>

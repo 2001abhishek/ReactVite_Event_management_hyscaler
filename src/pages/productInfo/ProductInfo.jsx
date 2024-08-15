@@ -39,7 +39,7 @@ function ProductInfo() {
 
     const addCart = (products) => {
         dispatch(addToCart(products));
-        toast('Added to cart', { autoClose: 500 });
+        toast('Added to wishlist', { autoClose: 500 });
     }
 
     useEffect(() => {
