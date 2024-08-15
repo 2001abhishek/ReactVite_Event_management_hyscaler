@@ -13,6 +13,7 @@ import Footer from '../../components/footer/Footer';
 function ProductInfo() {
     const context = useContext(myContext);
     const { loading, setLoading } = context;
+    const { mode, toggleMode } = context;
 
     const [products, setProducts] = useState({});
     const params = useParams();
@@ -58,7 +59,8 @@ function ProductInfo() {
 
     return (
         <Layout>
-            <section className="text-gray-600 body-font overflow-hidden">
+            <section style={{ color: mode === 'dark' ? 'white' : '' }}
+                className="text-gray-600 body-font overflow-hidden">
                 <div className="container px-5 py-10 mx-auto">
                     {products &&
                         <div className="lg:flex lg:flex-row mx-auto">
@@ -70,27 +72,30 @@ function ProductInfo() {
                                 <h2 className="text-sm title-font text-gray-500 tracking-widest mb-2">
                                     Get a ticket for
                                 </h2>
-                                <h1 className="text-gray-800 text-3xl title-font font-medium mb-4">
+                                <h1 style={{ color: mode === 'dark' ? 'white' : '' }}
+                                    className="text-gray-800 text-3xl title-font font-medium mb-4">
                                     {products.title}
                                 </h1>
                                 <div className="mb-4">
                                     <h3 className="text-lg font-medium">Event Date:</h3>
-                                    <p className="text-gray-700">{products.eventDate}</p>
+                                    <p style={{ color: mode === 'dark' ? 'white' : '' }}
+                                        className="text-gray-700">{products.eventDate}</p>
                                 </div>
                                 <div className="mb-4">
                                     <h3 className="text-lg font-medium">Location:</h3>
-                                    <p className="text-gray-700">{products.location}</p>
+                                    <p style={{ color: mode === 'dark' ? 'white' : '' }}
+                                        className="text-gray-700">{products.location}</p>
                                 </div>
                                 <p className="leading-relaxed border-b-2 mb-5 pb-5">
                                     {products.description}
                                 </p>
 
                                 <div className="flex items-center justify-between">
-                                    <span className="title-font font-medium text-2xl text-gray-900">
+                                    <span style={{ color: mode === 'dark' ? 'white' : '' }} className="title-font font-medium text-2xl text-gray-900">
                                         Event Price: ₹{products.price}
                                     </span>
                                     <div className="flex">
-                                        <button onClick={() => addCart(products)} className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                                        <button onClick={() => addCart(products)} className="flex ml-auto text-white bg-cyan-700 border-0 py-2 px-6 focus:outline-none hover:bg-cyan-900 rounded">
                                             Get Ticket
                                         </button>
                                         <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">

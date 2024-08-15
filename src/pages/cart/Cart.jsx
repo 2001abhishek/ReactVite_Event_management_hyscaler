@@ -34,7 +34,10 @@ function Cart() {
 
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
-    toast.warning('ticket removed');
+    toast.warning('ticket removed', {
+            autoClose: 100,
+            position: toast.POSITION.TOP_CENTER
+        });
   };
 
   useEffect(() => {
@@ -176,7 +179,7 @@ function Cart() {
               </div>
             ))}
           </div>
-          <div className="mt-6 h-full p-4 bg-gray-300 rounded-lg border drop-shadow-xl" style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '' }}>
+          <div className="mt-1 h-full p-4 bg-gray-300 rounded-lg border drop-shadow-xl" style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '' }}>
             <div className="mb-4">
               <h1 className="text-lg font-bold">Payment Details</h1>
               <div className="mt-4">

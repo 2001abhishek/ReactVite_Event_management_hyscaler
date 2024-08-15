@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
-import {FaUserTie } from 'react-icons/fa';
 import myContext from '../../../context/data/myContext';
 import Layout from '../../../components/layout/Layout';
 import DashboardTab from './DashboardTab';
 import { MdOutlineEventNote } from "react-icons/md";
-import { PiCurrencyInrBold } from "react-icons/pi";
+import { IoTicketSharp } from "react-icons/io5";
+import { FaMoneyCheckAlt } from "react-icons/fa";
+import { ImUsers } from "react-icons/im";
 
 
 
@@ -14,7 +15,6 @@ function Dashboard() {
     const totalProducts = product ? product.length : 0;
     const totalUser = user ? user.length : 0;
     const totalOrders = order ? order.length : 0;
-
 
   return (
     <Layout>
@@ -33,7 +33,7 @@ function Dashboard() {
                     <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
                         <div className=" border-2 hover:shadow-violet-600 shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] bg-gray-100 border-gray-300    px-4 py-3 rounded-xl" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }}>
                             <div className="text-cyan-700	 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-                            <PiCurrencyInrBold size={50}/>
+                            <IoTicketSharp size={50}/>
                             </div>
                             <h2 className="title-font font-medium text-3xl text-black fonts1" style={{ color: mode === 'dark' ? 'white' : ''}}>{totalOrders}</h2>
                             <p className=" text-cyan-700	  font-bold" style={{ color: mode === 'dark' ? 'white' : ''}}>Total Selling</p>
@@ -42,7 +42,7 @@ function Dashboard() {
                     <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
                         <div className=" border-2 hover:shadow-violet-600 shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] bg-gray-100 border-gray-300    px-4 py-3 rounded-xl" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
                             <div className="text-cyan-700	 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-                                <FaUserTie size={50} />
+                                <ImUsers size={50} />
                             </div>
                             <h2 className="title-font font-medium text-3xl text-black fonts1" style={{ color: mode === 'dark' ? 'white' : ''}}>{totalUser}</h2>
                             <p className=" text-cyan-700	  font-bold" style={{ color: mode === 'dark' ? 'white' : ''}}>Total Users</p>
@@ -51,10 +51,10 @@ function Dashboard() {
                     <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
                         <div className=" border-2 hover:shadow-violet-600 shadow-[inset_0_0_10px_rgba(0,0,0,0.6)] bg-gray-100 border-gray-300    px-4 py-3 rounded-xl" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }}>
                             <div className="text-cyan-700	 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-                                <FaUserTie size={50} />
+                                <FaMoneyCheckAlt size={50} />
                             </div>
                             <h2 className="title-font font-medium text-3xl text-black fonts1" style={{ color: mode === 'dark' ? 'white' : ''}}>20</h2>
-                            <p className=" text-cyan-700	  font-bold" style={{ color: mode === 'dark' ? 'white' : ''}}>Total Products</p>
+                            <p className=" text-cyan-700	  font-bold" style={{ color: mode === 'dark' ? 'white' : ''}}>Total Earning</p>
                         </div>
                     </div>
                 </div>

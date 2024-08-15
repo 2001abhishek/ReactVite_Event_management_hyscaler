@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const context = useContext(myContext)
-  const {mode, toggleMode}= context;
+  const { mode, toggleMode } = context;
 
   const [open, setOpen] = useState(false)
 
@@ -29,14 +29,14 @@ function Navbar() {
     if (!user) {
       // Prevent default action if no user is logged in
       event.preventDefault();
-      toast.info('Please Login or Signup',{
+      toast.info('Please Login or Signup', {
         position: toast.POSITION.TOP_CENTER,
-        autoClose:1500,
+        autoClose: 1500,
         onClose: () => {
           navigate('/login'); // Navigate to the login page after the toast is closed
         }
-        
-    });
+
+      });
     } else {
       // Handle the cart click action for logged-in users
       // (You can navigate to the cart page or perform other actions here)
@@ -44,11 +44,11 @@ function Navbar() {
   };
   const adminEmails = JSON.parse(import.meta.env.VITE_ADMIN_EMAILS);
 
-const isAdmin = adminEmails.includes(user?.user?.email);
+  const isAdmin = adminEmails.includes(user?.user?.email);
 
   return (
     <div className='bg-white sticky top-0 z-50'>
-    <Transition.Root show={open} as={Fragment}>
+      <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
           <Transition.Child
             as={Fragment}
@@ -84,37 +84,37 @@ const isAdmin = adminEmails.includes(user?.user?.email);
                   </button>
                 </div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  
+
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Events
                   </Link>
-                  {user? <div className="flow-root">
+                  {user ? <div className="flow-root">
                     <Link to={'/order'} style={{ color: mode === 'dark' ? 'white' : '', }} className="-m-2 block p-2 font-medium text-gray-900">
                       Order
                     </Link>
-                  </div>: ""}
+                  </div> : ""}
 
                   {isAdmin === true ? <div className="flow-root">
                     <Link to={'/dashboard'} className="-m-2 block p-2 font-medium text-gray-900" style={{ color: mode === 'dark' ? 'white' : '', }}>
                       admin
                     </Link>
-                  </div>: ""}
+                  </div> : ""}
 
-                  {user? <div className="flow-root">
+                  {user ? <div className="flow-root">
                     <a onClick={logout} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer" style={{ color: mode === 'dark' ? 'white' : '', }}>
                       Logout
                     </a>
-                  </div>: ""}
+                  </div> : ""}
                   <div>
-                  {!user && (
-              <Link
-                to="/login"
-                className="text-sm font-medium text-gray-700"
-                style={{ color: mode === 'dark' ? 'white' : '' }}
-              >
-                Login
-              </Link>
-            )}
+                    {!user && (
+                      <Link
+                        to="/login"
+                        className="text-sm font-medium text-gray-700"
+                        style={{ color: mode === 'dark' ? 'white' : '' }}
+                      >
+                        Login
+                      </Link>
+                    )}
                   </div>
                   <div className="flow-root">
                     <Link to={'/'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer">
@@ -175,28 +175,28 @@ const isAdmin = adminEmails.includes(user?.user?.email);
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Events
                   </Link>
-                  {user? <Link to={'/order'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                  {user ? <Link to={'/order'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     MyTickets
-                  </Link>: ""}
+                  </Link> : ""}
 
                   {isAdmin === true ?
 
-                  <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
-                    Admin
-                  </Link>:""}{/* Only can seen by Admin. User unable to see this button */}
+                    <Link to={'/dashboard'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      Admin
+                    </Link> : ""}{/* Only can seen by Admin. User unable to see this button */}
 
                   {user ? <a onClick={logout} className="text-sm font-medium text-gray-700 cursor-pointer  " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     Logout
-                  </a>:""}
+                  </a> : ""}
                   {!user && (
-              <Link
-                to="/login"
-                className="text-sm font-medium text-gray-700"
-                style={{ color: mode === 'dark' ? 'white' : '' }}
-              >
-                Login
-              </Link>
-            )}
+                    <Link
+                      to="/login"
+                      className="text-sm font-medium text-gray-700"
+                      style={{ color: mode === 'dark' ? 'white' : '' }}
+                    >
+                      Login
+                    </Link>
+                  )}
 
                 </div>
 
@@ -211,12 +211,12 @@ const isAdmin = adminEmails.includes(user?.user?.email);
                   </a>
                 </div>
                 <div className="hidden lg:ml-8 lg:flex">
-      <a href="#" className="flex items-center text-gray-700 ">
-        <span className="ml-3 block text-sm font-medium" style={{ color: mode === 'dark' ? 'white' : '', }}>
-          {user?.user?.email || 'User'}
-        </span>
-      </a>
-    </div>
+                  <a href="#" className="flex items-center text-gray-700 ">
+                    <span className="ml-3 block text-sm font-medium" style={{ color: mode === 'dark' ? 'white' : '', }}>
+                      {user?.user?.email || 'User'}
+                    </span>
+                  </a>
+                </div>
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
@@ -233,9 +233,10 @@ const isAdmin = adminEmails.includes(user?.user?.email);
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <Link to={'/cart'} className="group -m-2 flex items-center p-2" onClick={handleCartClick} style={{ color: mode === 'dark' ? 'white' : '', }}>
-                  <svg class="w-6 h-6 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/>
-</svg>
+                    <svg style={{ color: mode === 'dark' ? 'white' : '' }}
+                      class="w-6 h-6 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z" />
+                    </svg>
 
 
                     <span className="ml-2 text-sm font-medium text-gray-700 group-" style={{ color: mode === 'dark' ? 'white' : '', }}>{cartItems.length}</span>

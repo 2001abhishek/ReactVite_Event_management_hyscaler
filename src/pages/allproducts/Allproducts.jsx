@@ -21,8 +21,12 @@ function Allproducts() {
         event.preventDefault(); // Prevent the default behavior of the click event
         event.stopPropagation(); // Prevent click event from propagating
         dispatch(addToCart(product));
-        toast('added to cart', { autoClose: 500 });
+        toast('Added to wishlist', { 
+            autoClose: 500,
+            position: toast.POSITION.TOP_CENTER 
+        });
     };
+    
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartItems));
