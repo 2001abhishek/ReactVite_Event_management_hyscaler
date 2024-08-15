@@ -92,7 +92,7 @@ function ProductInfo() {
 
                                 <div className="flex items-center justify-between">
                                     <span style={{ color: mode === 'dark' ? 'white' : '' }} className="title-font font-medium text-2xl text-gray-900">
-                                        Event Price: ₹{products.price}
+                                        Event Price: ₹ {products.price}
                                     </span>
                                     <div className="flex">
                                         <button onClick={() => addCart(products)} className="flex ml-auto text-white bg-cyan-700 border-0 py-2 px-6 focus:outline-none hover:bg-cyan-900 rounded">

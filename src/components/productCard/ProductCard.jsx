@@ -35,7 +35,7 @@ function ProductCard() {
 
     return (
         <section className="text-gray-600 body-font">
-            <div className="container px-5 py-8 md:py-16 mx-auto">
+            <div className="container px-5 py-8 md:py-2 mx-auto">
                 <div className="lg:w-1/2 w-full mb-6 lg:mb-10">
                     <h1
                         className="sm:text-3xl text-2xl font-bold title-font mb-2"
