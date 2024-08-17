@@ -3,6 +3,9 @@ import { collection, addDoc, getDocs, query, orderBy, updateDoc, doc } from 'fir
 import { fireDB } from '../../firebase/FirebaseConfig';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import Layout from '../../components/layout/Layout';
+import Footer from '../../components/footer/Footer';
+
 
 function PollSection() {
   const [events, setEvents] = useState([]);
@@ -15,13 +18,22 @@ function PollSection() {
   const user = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
 
+  // Helper function to mask email addresses
+  function maskEmail(email) {
+    const [user, domain] = email.split('@');
+    if (user.length > 5) {
+      return `${user.substring(0, 5)}***@${domain}`;
+    }
+    return `${user}***@${domain}`;
+  }
+
   // Fetch events from the products collection
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         const eventsQuery = query(collection(fireDB, 'products'));
         const eventsSnapshot = await getDocs(eventsQuery);
-        const eventsList = eventsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const eventsList = eventsSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setEvents(eventsList);
       } catch (error) {
         console.error('Error fetching events:', error);
@@ -37,7 +49,7 @@ function PollSection() {
       try {
         const pollsQuery = query(collection(fireDB, 'poll'), orderBy('date', 'desc'));
         const pollsSnapshot = await getDocs(pollsQuery);
-        const pollsList = pollsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        const pollsList = pollsSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setPollData(pollsList);
       } catch (error) {
         console.error('Error fetching poll data:', error);
@@ -68,7 +80,7 @@ function PollSection() {
       userEmail: user.user.email,
       comment,
       date: new Date().toISOString(),
-      replies: [], // Initialize with an empty array for replies
+      replies: [],
     };
 
     try {
@@ -81,7 +93,7 @@ function PollSection() {
       setSelectedEvent('');
       // Fetch the updated poll data after posting a new comment
       const pollsSnapshot = await getDocs(query(collection(fireDB, 'poll'), orderBy('date', 'desc')));
-      const pollsList = pollsSnapshot.docs.map(doc => doc.data());
+      const pollsList = pollsSnapshot.docs.map((doc) => doc.data());
       setPollData(pollsList);
     } catch (error) {
       console.error('Error posting comment:', error);
@@ -134,6 +146,7 @@ function PollSection() {
   };
 
   return (
+    <Layout>
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Poll Section</h1>
 
@@ -141,7 +154,7 @@ function PollSection() {
         <label className="block text-sm font-medium mb-2">Choose Event:</label>
         <select
           value={selectedEvent ? selectedEvent.id : ''}
-          onChange={(e) => setSelectedEvent(events.find(event => event.id === e.target.value))}
+          onChange={(e) => setSelectedEvent(events.find((event) => event.id === e.target.value))}
           className="w-full p-2 border rounded-md"
         >
           <option value="">Select an event</option>
@@ -177,8 +190,10 @@ function PollSection() {
           <div className="space-y-4">
             {pollData.map((poll, index) => (
               <div key={index} className="p-4 border rounded-md bg-gray-100">
-                <p className="text-md"> <span className='font-bold'>{poll.userEmail}</span>  on <span className='font-bold'>{poll.eventName}</span></p>
-                {/* <p className="text-sm text-gray-600">{poll.eventName}</p> */}
+                <p className="text-md">
+                  <span className="font-bold">{maskEmail(poll.userEmail)}</span> on{' '}
+                  <span className="font-bold">{poll.eventName}</span>
+                </p>
                 <p className="text-md">{poll.comment}</p>
                 <p className="text-sm text-gray-500">{new Date(poll.date).toLocaleString()}</p>
 
@@ -190,7 +205,7 @@ function PollSection() {
                     <div className="pl-4 mt-2 space-y-2">
                       {poll.replies.map((reply, i) => (
                         <div key={i} className="bg-gray-200 p-2 rounded-md">
-                          <p className="text-sm text-gray-600">{reply.userEmail}</p>
+                          <p className="text-sm text-gray-600">{maskEmail(reply.userEmail)}</p>
                           <p className="text-md">{reply.reply}</p>
                           <p className="text-sm text-gray-500">
                             {new Date(reply.date).toLocaleString()}
@@ -232,6 +247,8 @@ function PollSection() {
         )}
       </div>
     </div>
+    <Footer/>
+    </Layout>
   );
 }
 
