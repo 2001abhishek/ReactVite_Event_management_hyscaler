@@ -8,6 +8,7 @@ import {
 
 import Dashboard from './pages/admin/dashboard/Dashboard';
 import Order from './pages/order/Order';
+import PollSection from './pages/pollsection/PollSection';
 import Cart from './pages/cart/Cart';
 import Home from './pages/home/Home';
 import Nopage from './pages/nopage/Nopage';
@@ -39,6 +40,7 @@ function App() {
           <Dashboard/>
         </ProtectedRouteForAdmin>
       }/>
+      <Route path="/poll" element={<PollSection/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/forgetpass' element={<ForgetPass/>}/>

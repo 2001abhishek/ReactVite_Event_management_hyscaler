@@ -165,6 +165,9 @@ function Navbar() {
                   <Link to={'/allproducts'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Events
                   </Link>
+                  <Link to={'/poll'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                    Poll
+                  </Link>
                   {user ? <Link to={'/order'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     MyTickets
                   </Link> : ""}
