@@ -53,7 +53,7 @@ function Dashboard() {
                             <div className="text-cyan-700	 w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
                                 <FaMoneyCheckAlt size={50} />
                             </div>
-                            <h2 className="title-font font-medium text-3xl text-black fonts1" style={{ color: mode === 'dark' ? 'white' : ''}}>20</h2>
+                            <h2 className="title-font font-medium text-3xl text-black fonts1" style={{ color: mode === 'dark' ? 'white' : ''}}>3800</h2>
                             <p className=" text-cyan-700	  font-bold" style={{ color: mode === 'dark' ? 'white' : ''}}>Total Earning</p>
                         </div>
                     </div>
