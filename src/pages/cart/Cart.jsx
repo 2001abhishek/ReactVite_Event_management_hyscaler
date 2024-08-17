@@ -29,8 +29,8 @@ function Cart() {
     setTotalAmount(tempTotal);
   }, [cartItems, quantities]);
 
-  const shipping = cartItems.length > 0 ? 25 : 0; // Shipping is 0 if no items are in the cart
-  const grandTotal = shipping + totalAmount;
+  const confee = cartItems.length > 0 ? 25 : 0; // Convenience fee is 0 if no items are in the cart
+  const grandTotal = confee + totalAmount;
 
   const deleteCart = (item) => {
     dispatch(deleteFromCart(item));
@@ -205,7 +205,7 @@ function Cart() {
             </div>
             <div className="mt-4 flex justify-between text-sm font-semibold">
               <span>Convenience fee:</span>
-              <span>₹ {shipping}/-</span>
+              <span>₹ {confee}/-</span>
             </div>
             <div className="mt-4 flex justify-between text-lg font-bold">
               <span>Total</span>
